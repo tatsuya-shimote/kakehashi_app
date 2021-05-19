@@ -1,0 +1,51 @@
+
+//topのメイン部分
+.top{
+  background-color: #D9FCE5;
+  height: 300px;
+  text-align: center;
+  & .top_contents{
+    padding-top: 50px;
+    & h1 {
+      font-weight: 500;
+      font-size: 5em;
+    }
+  }
+  
+  & .imgs{
+      height: 300px;
+      width: 300px;
+    }
+  
+}
+
+
+
+//topのintroductionの調整
+.introduction{
+  padding-top: 20px;
+}
+.points {
+    height: 300px;
+    width: 100%;
+    & .point_content{
+      padding-top: 20px;
+    }
+    & .point_image{
+      text-align: center;
+      & .imgs{
+        height: 180px;
+        width: 180px;
+      }
+    }
+}
+
+.signup-btn{
+  text-align: center;
+  color: white;
+  & a{
+    background-color: #4CC035;
+  }
+  
+}
+
