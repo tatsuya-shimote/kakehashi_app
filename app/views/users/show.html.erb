@@ -1,0 +1,18 @@
+<div class = "user_profile">
+  <div class = "container">
+    <h2>プロフィール</h2>
+    <!--画像-->
+    <p><%= @user.name %></p>
+    <% if current_user? %>
+      <%= link_to "編集", edit_user_path(@user), class: 'btn btn-md btn-primary'%>
+      <%= link_to "グループ作成", new_group_path, class: 'btn btn-md btn-primary' %>
+    <% end %>
+    <h3>現在参加中のグループ</h3>
+    <% unless @user.groups.nil? %>
+      <div class = "col-6 offset-3">
+       <!--このままだとグループを作った人しか表示されない-->
+      </div>
+    <% end %>
+  </div>
+  
+</div>

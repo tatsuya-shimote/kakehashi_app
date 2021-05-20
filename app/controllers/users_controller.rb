@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :require_user_logged_in, only: [:index, :show, :edit, :update]
   def index
     #@users = User.all
   end
@@ -14,6 +15,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)    
     if @user.save
+      log_in(@user)
       flash[:success] = "登録に成功しました。"
       redirect_to root_url
     else

@@ -1,0 +1,10 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">作成者</h5>
+    <%=link_to group.user.name, user_path(group.user), class: "card-text text-center" %>
+    <h5 class="card-title">学習言語</h5>
+    <p class="card-text text-center"><%= group.learning %></p>
+    <span>参加人数</span>
+    <%= link_to "グループ詳細", group_path(group), class: "btn btn-primary" %>
+  </div>
+</div>

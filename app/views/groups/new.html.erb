@@ -1,2 +1,25 @@
-<h1>Groups#new</h1>
-<p>Find me in app/views/groups/new.html.erb</p>
+<div class = "create_group">
+  <div class = "container">
+    <h2>グループ作成</h2>
+    <%= form_with(model: @group, local: true) do |f| %>
+      <%= render 'layouts/error_messages', object: f.object %>
+      
+      <%= f.label :name, "作成者" %>
+      <p><%= @group.user.name %></p>
+
+      <%= f.label :learning, "学習言語" %>
+      <%= f.select :learning, [["HTML/CSS","HTML/CSS"],["JavaScript","JavaScript"],["Ruby/Ruby on Rails","Ruby/Ruby on Rails"],
+      ["PHP/Laravel","PHP/Laravel"],["Python/Django","Python/Django"],["java","java"]], include_blank: "言語を選択してください" %>
+      
+      <%= f.label :limit, "参加できる人数" %>
+      <%= f.select :limit, [[2,2],[3,3],[4,4],[5,5]], include_blank: "人数を選択してください" %>
+
+      <%= f.label :content, "メッセージ" %>
+      <%= f.text_area :content, class: 'form-control', include_blank: "例：主にRubyを学習しています。参加をお待ちしております！" %>
+      <div class = "login-btn">
+        <%= f.submit "登録", class: "btn btn-success" %>
+      </div>
+      
+      <% end %>
+  </div>
+</div>

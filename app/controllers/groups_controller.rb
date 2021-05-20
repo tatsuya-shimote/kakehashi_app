@@ -1,6 +1,9 @@
 class GroupsController < ApplicationController
+   before_action :require_user_logged_in
+  
   def index
     @groups = Group.order(id: :desc).page(params[:page]).per(6)
+    #@groups = Group.all
   end
 
   def show
@@ -14,10 +17,10 @@ class GroupsController < ApplicationController
   def create
     @group = current_user.groups.new(group_params)
     if @group.save
-      redirect_to "index"
+      redirect_to groups_path
     else
       flash.now[:danger] = "作成に失敗しました。全ての項目に入力をしてください。"
-      render "new"
+      render new_group_path
     end
   end
 

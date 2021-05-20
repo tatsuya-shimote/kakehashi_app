@@ -3,7 +3,11 @@
         <h2>
             グループ一覧
         </h2>
-        <%= render 'group_card' %>
+        <%= render 'group_card', groups: @groups %>
+    </div>
+    <div class = "create_group_btn">
+        <%= paginate @groups %>
+        <%= link_to "グループを作成", new_group_path, class: "btn btn-lg btn-primary" %>
     </div>
 </div>
 
