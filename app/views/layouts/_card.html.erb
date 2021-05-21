@@ -1,10 +1,21 @@
 <div class="card">
   <div class="card-body">
-    <h5 class="card-title">作成者</h5>
-    <%=link_to group.user.name, user_path(group.user), class: "card-text text-center" %>
-    <h5 class="card-title">学習言語</h5>
-    <p class="card-text text-center"><%= group.learning %></p>
-    <span>参加人数</span>
-    <%= link_to "グループ詳細", group_path(group), class: "btn btn-primary" %>
+    <div class = "chunk">
+      <span class = "card-subtitle">作成者：</span>
+      <%=link_to group.user.name, user_path(group.user)%>
+    </div>
+    <div class = "chunk">
+      <span class = "card-subtitle">学習言語：</span>
+      <span><%= group.learning %></span>
+    </div>
+    <div class = "row chunk">
+      <div class = "col-6">
+        <span>参加人数</span>
+        <span>◯人/<%= group.limit %>人</span>
+      </div>
+      <div class = "col-6 group-detail">
+        <%= link_to "グループ詳細", group_path(group), class: "btn btn-primary" %>
+      </div>
+    </div>
   </div>
 </div>

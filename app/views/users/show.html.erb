@@ -1,18 +1,26 @@
 <div class = "user_profile">
   <div class = "container">
     <h2>プロフィール</h2>
-    <!--画像-->
+    <!--画像挿入欄-->
     <p><%= @user.name %></p>
     <% if current_user? %>
-      <%= link_to "編集", edit_user_path(@user), class: 'btn btn-md btn-primary'%>
-      <%= link_to "グループ作成", new_group_path, class: 'btn btn-md btn-primary' %>
+      <div class = "user_menu">
+        <div class = "user_edit_btn">
+          <%= link_to "編集", edit_user_path(@user), class: 'btn btn-md btn-primary'%>
+        </div>
+        <div class = "create_group_btn">
+          <%= link_to "グループ作成", new_group_path, class: 'btn btn-md btn-primary' %>
+        </div>
+      </div>
     <% end %>
-    <h3>現在参加中のグループ</h3>
+    <div class = "user_message">
+      <%= @user.content %>
+    </div>
+    <h5>現在参加中のグループ</h5>
     <% unless @user.groups.nil? %>
-      <div class = "col-6 offset-3">
-       <!--このままだとグループを作った人しか表示されない-->
+      <div class = "col-md-6 offset-md-3">
+        <%= render "layouts/card", group: @user.groups.first %><!--このままだとグループを作った人しか表示されない-->
       </div>
     <% end %>
   </div>
-  
 </div>

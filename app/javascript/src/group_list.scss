@@ -4,5 +4,27 @@
 
 .create_group_btn{
   padding: 80px;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pagination {
+  justify-content: center;
+  & span{
+    padding: 9px 15px;
+    border:solid 0.5px #696969;
+    margin-right: 5px;
+    & a{
+      text-decoration: none;
+      border: none;     
+      color: #696969;   
+    }
+    &:hover{
+        border-radius: 15px;
+      }
+  }
+  .current{
+    background: #93c9ff;
+    border-radius: 15px;
+  }
 }
