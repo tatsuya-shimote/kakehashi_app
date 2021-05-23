@@ -1,2 +1,10 @@
-<h1>Groups#show</h1>
-<p>Find me in app/views/groups/show.html.erb</p>
+<div class = "show_group">
+  <div class = "container">
+    <h2>グループ詳細</h2>
+      <%= render 'layouts/group_info', group: @group %>
+      <h5>メッセージ</h5>
+      <div class = "message">
+        <%= @group.content %>
+      </div>
+  </div>
+</div>

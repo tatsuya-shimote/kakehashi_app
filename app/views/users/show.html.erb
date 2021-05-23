@@ -13,11 +13,11 @@
         </div>
       </div>
     <% end %>
-    <div class = "user_message">
+    <div class = "message">
       <%= @user.content %>
     </div>
     <h5>現在参加中のグループ</h5>
-    <% unless @user.groups.nil? %>
+    <% unless @user.groups.empty? %>
       <div class = "col-md-6 offset-md-3">
         <%= render "layouts/card", group: @user.groups.first %><!--このままだとグループを作った人しか表示されない-->
       </div>
