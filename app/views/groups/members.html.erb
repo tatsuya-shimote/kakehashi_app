@@ -1,5 +1,19 @@
 <h1>Chat room</h1>
-<div id='posts'>
-  <%= render @posts %>
+<%= button_to "退出", exit_group_path(@group), method: :delete , class: "btn btn-outline-primary" %>
+<div class = "container">
+  <div class = "row">
+    <div class = "col-md-8 order-md-1", id='posts'>
+      <%= render @posts %>
+    </div>
+    <div class="col-md-4 order-md-0">
+      <%= form_with(model: @post, local: true) do |f| %>
+        <div class="form-group">
+          <%= text_field_tag 'post[group_id]', "#{@group.id}", type: "hidden" %>
+          <%= f.text_area :message, class: 'form-control', rows: 5 %>
+        </div>
+        <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
+      <% end %>
+    </div>
+  </div>
 </div>
-<%= button_to "退出", exit_group_path(@group), method: :delete %>
+

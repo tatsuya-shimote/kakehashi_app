@@ -10,7 +10,9 @@ Rails.application.routes.draw do
       get :members
       get :join
       delete :exit
+      resources :posts, only: [:create, :destroy]
     end
   end
   resources :users
+  
 end

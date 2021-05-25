@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
    before_action :require_user_logged_in
    after_action :group_delete, only: [:exit]
+   before_action :members?, only: [:members, :exit]
   
   def index
     @groups = Group.order(id: :desc).page(params[:page]).per(6)
@@ -40,6 +41,7 @@ class GroupsController < ApplicationController
   
   def members
     @group = Group.find(params[:id])
+    @post = current_user.posts.build
     @posts = @group.posts 
   end
   
@@ -60,6 +62,12 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     if @group.member.count == 0
       @group.destroy
+    end
+  end
+  
+  def members?
+    unless current_user.members.find_by(group_id: params[:id])
+      redirect_to groups_path
     end
   end
   
