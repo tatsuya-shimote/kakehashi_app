@@ -4,7 +4,7 @@
       <div class = "row chunk">
         <div class = "col-6">
           <span>参加人数</span>
-          <span>◯人/<%= group.limit %>人</span>
+          <span><%= group.members.count %>人/<%= group.limit %>人</span>
         </div>
         <div class = "col-6 group-detail">
           <%= link_to "グループ詳細", group_path(group), class: "btn btn-primary" %>

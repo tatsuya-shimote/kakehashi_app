@@ -1,0 +1,7 @@
+<div class='post'>
+  <p><%= post.message %></p>
+  <!--ボタンが表示されない-->
+  <% if current_user? %>
+    <%= button_to "削除", post, method: :delete %>
+  <% end %>
+</div>

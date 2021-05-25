@@ -10,4 +10,17 @@ class User < ApplicationRecord
   has_many :groups
   has_many :members
   has_many :posts
+  has_many :group ,through: :members, source: :group #これいるのか？
+  
+  
+  def join(will_join_group)
+    unless self.members.find_by(group_id: will_join_group)
+      self.members.find_or_create_by(group_id: will_join_group.id)
+    end
+  end
+  
+  def exit(join_group)
+    grp = self.members.find_by(group_id: join_group.id)
+    grp.destroy if grp
+  end
 end

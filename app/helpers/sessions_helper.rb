@@ -11,8 +11,10 @@ module SessionsHelper
     !!current_user
   end
   
+  #ユーザー詳細ページの編集機能を表示するかしないかに利用
   def current_user?
     current_user == User.find_by(id: params[:id])
   end
-  
+    
+    
 end

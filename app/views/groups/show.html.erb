@@ -6,5 +6,10 @@
       <div class = "message">
         <%= @group.content %>
       </div>
+      <% if @group.members.count < @group.limit%>
+        <%= link_to "グループに参加", join_group_path(@group), class: "btn btn-primary" %>
+      <% else %>
+        <a href="#" class="btn btn-secondary disabled" tabindex="-1" role="button" aria-disabled="true">満員</a>
+      <% end %>
   </div>
 </div>
