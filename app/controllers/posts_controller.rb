@@ -3,6 +3,7 @@ class PostsController < ApplicationController
     @post = Post.new(posts_params)
     if @post.save
       redirect_to members_user_path
+    end
   end
   
   def delete
