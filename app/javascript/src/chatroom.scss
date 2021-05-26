@@ -1,3 +1,7 @@
+.chatroom{
+  padding-top: 80px;
+}
+
 .post{
   border: solid 1px gray;
   border-radius: 8px;
@@ -8,4 +12,9 @@
   & .user_messages{
     margin: 5px;
   }
+}
+
+.scroll {
+height: 500px;
+overflow-y: scroll;
 }

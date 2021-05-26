@@ -15,6 +15,9 @@ module SessionsHelper
   def current_user?
     current_user == User.find_by(id: params[:id])
   end
-    
+  
+  def group_member?
+    current_user.members.find_by(group_id: params[:id])
+  end
     
 end
