@@ -1,5 +1,8 @@
+<%= post.user.name %>
 <div class='post'>
-  <p><%= post.message %></p>
+  <div class = "user_messages">
+    <%= safe_join(post.message.split("\n"),tag(:br)) %>
+  </div>
   <!--ボタンが表示されない-->
   <% if current_user? %>
     <%= button_to "削除", post, method: :delete %>

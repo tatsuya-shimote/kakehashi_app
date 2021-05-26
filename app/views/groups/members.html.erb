@@ -9,7 +9,7 @@
       <%= form_with(model: @post, local: true) do |f| %>
         <div class="form-group">
           <%= text_field_tag 'post[group_id]', "#{@group.id}", type: "hidden" %>
-          <%= f.text_area :message, class: 'form-control', rows: 5 %>
+          <%= f.text_area :message, class: 'form-control', rows: 3 %>
         </div>
         <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
       <% end %>

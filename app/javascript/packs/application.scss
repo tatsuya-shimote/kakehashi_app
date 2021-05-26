@@ -8,6 +8,8 @@
 @import 'src/user_show';
 @import 'src/message'; //User＆Groupのメッセージ文
 @import 'src/show_group';
+@import 'src/chatroom';
+
 //スマホを横に傾けた時の幅
 @media (min-width: 480px) {
     @import "src/480up_image_size";

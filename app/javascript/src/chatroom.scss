@@ -1,0 +1,11 @@
+.post{
+  border: solid 1px gray;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  background-color: white;
+  color: #59646d;
+  letter-spacing: 1.5px;
+  & .user_messages{
+    margin: 5px;
+  }
+}
