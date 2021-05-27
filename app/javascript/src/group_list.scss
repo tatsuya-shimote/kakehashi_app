@@ -3,18 +3,19 @@
 }
 
 .create_group_btn{
-  padding: 80px;
-  display: flex;
-  justify-content: space-between;
+  text-align: center;
+  padding: 45px;
 }
 
 .pagination {
   justify-content: center;
+  margin-top: 45px;
   & span{
     padding: 9px 15px;
     border:solid 0.5px #696969;
     margin-right: 5px;
     & a{
+      display: block;
       text-decoration: none;
       border: none;     
       color: #696969;   

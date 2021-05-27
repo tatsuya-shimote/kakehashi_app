@@ -16,7 +16,7 @@
     <div class = "message">
       <%= @user.content %>
     </div>
-    <h5>現在参加中のグループ</h5>
+    <h5 class = "text-center">現在参加中のグループ</h5>
     <% unless @user.group.empty? %>
       <div class = "col-md-6 offset-md-3">
         <%= render "layouts/card", group: @user.group.first %>

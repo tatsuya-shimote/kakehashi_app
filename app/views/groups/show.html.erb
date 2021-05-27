@@ -2,8 +2,10 @@
   <div class = "container">
     <h2>グループ詳細</h2>
       <%= render 'layouts/group_info', group: @group %>
-      <h5>参加者</h5>
-      <%= render 'layouts/members_name', group: @group %>
+      <div class = "chunk">
+        <span class = "card-subtitle">参加者：</span>
+         <%= render 'layouts/members_name', group: @group %>
+      </div>
       <h5>メッセージ</h5>
       <div class = "message">
         <%= @group.content %>
