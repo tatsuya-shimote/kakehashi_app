@@ -1,10 +1,6 @@
-<%= post.user.name %>
+<div><%= post.user.name %>　<%= post.created_at.strftime("%m-%d %H:%M") %></div>
 <div class='post'>
   <div class = "user_messages">
     <%= safe_join(post.message.split("\n"),tag(:br)) %>
   </div>
-  <!--ボタンが表示されない-->
-  <% if current_user? %>
-    <%= button_to "削除", post, method: :delete %>
-  <% end %>
 </div>
