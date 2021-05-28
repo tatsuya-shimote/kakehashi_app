@@ -6,7 +6,7 @@ class PostsController < ApplicationController
    if @post.save
      redirect_to members_group_path
    else
-     flash[:danger] = "送信失敗"
+     flash[:danger] = "メッセージ入力してください。"
      redirect_to members_group_path
    end
   end

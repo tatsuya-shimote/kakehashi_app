@@ -17,22 +17,18 @@
     <% end %>
     <h5>現在参加中のグループ</h5>
     <div class = "row">
-      <% if @user.group.empty? %>
-        <div class = "col-md-6 not_have_group">
-          <div class="card">
-            <div class="card-body">
-                <h4 class "card-title">現在グループに<br>参加していません。</h4>
-            </div>
+        <% if @user.group.empty? %>
+          <div class = "col-md-6">
+            <%= render "layouts/not_join_group" %>
           </div>
+        <% else %>
+          <div class = "col-md-6">
+            <%= render "layouts/card", group: @user.group.first %>
+          </div>
+        <% end %>
+        <div class = "create_group_btn col-md-6">
+          <%= link_to "グループ作成", new_group_path, class: 'btn btn-md btn-primary create-btn' %>
         </div>
-      <% else %>
-        <div class = "col-md-6">
-          <%= render "layouts/card", group: @user.group.first %>
-        </div>
-      <% end %>
-      <div class = "create_group_btn col-md-6">
-        <%= link_to "グループ作成", new_group_path, class: 'btn btn-md btn-primary create-btn' %>
-      </div>
     </div>
   </div>
 </div>
