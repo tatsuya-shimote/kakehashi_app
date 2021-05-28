@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
    before_action :require_user_logged_in
    before_action :members?, only: [:members, :exit]
+   before_action :members_over?, only: [:join]
    after_action :group_delete, only: [:exit]
    
   
@@ -30,14 +31,8 @@ class GroupsController < ApplicationController
 
   def join
     @group = Group.find(params[:id])
-    if @group.members.count <= @group.limit
-        current_user.join(@group)
-        redirect_to members_group_path
-    else
-      flash[:warning]="満員のため参加できません。"
-      redirect_to @group
-    end
-    
+    current_user.join(@group)
+    redirect_to members_group_path
   end
   
   def destroy
@@ -79,7 +74,10 @@ class GroupsController < ApplicationController
   end
   
   def members_over?
-    
+    if @group.members.count > @group.limit
+      flash[:warning]="満員のため参加できません。"
+      redirect_to @group
+    end
   end
   
 end
