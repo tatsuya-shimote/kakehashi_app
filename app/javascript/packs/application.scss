@@ -28,6 +28,7 @@
 //タブレット
 @media (min-width: 768px) {
     @import "src/768up_image_size";
+    @import "src/768up_create_btn";
 }
 
 body {

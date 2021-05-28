@@ -8,19 +8,31 @@
         <div class = "user_edit_btn">
           <%= link_to "編集", edit_user_path(@user), class: 'btn btn-md btn-primary'%>
         </div>
-        <div class = "create_group_btn">
-          <%= link_to "グループ作成", new_group_path, class: 'btn btn-md btn-primary' %>
-        </div>
       </div>
     <% end %>
+    <% unless @user.content.blank? %>
     <div class = "message">
       <%= @user.content %>
     </div>
-    <h5 class = "text-center">現在参加中のグループ</h5>
-    <% unless @user.group.empty? %>
-      <div class = "col-md-6 offset-md-3">
-        <%= render "layouts/card", group: @user.group.first %>
-      </div>
     <% end %>
+    <h5>現在参加中のグループ</h5>
+    <div class = "row">
+      <% if @user.group.empty? %>
+        <div class = "col-md-6 not_have_group">
+          <div class="card">
+            <div class="card-body">
+                <h4 class "card-title">現在グループに<br>参加していません。</h4>
+            </div>
+          </div>
+        </div>
+      <% else %>
+        <div class = "col-md-6">
+          <%= render "layouts/card", group: @user.group.first %>
+        </div>
+      <% end %>
+      <div class = "create_group_btn col-md-6">
+        <%= link_to "グループ作成", new_group_path, class: 'btn btn-md btn-primary create-btn' %>
+      </div>
+    </div>
   </div>
 </div>

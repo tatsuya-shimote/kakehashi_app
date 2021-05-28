@@ -22,7 +22,7 @@ class GroupsController < ApplicationController
       current_user.join(@group)
       redirect_to members_group_path(@group)
     else
-      flash.now[:danger] = "作成に失敗しました。全ての項目に入力をしてください。"
+      flash.now[:danger] = "全ての項目に入力をしてください。"
       render new_group_path
     end
   end

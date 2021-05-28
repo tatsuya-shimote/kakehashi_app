@@ -5,6 +5,7 @@
         <%= render @posts %>
       </div>
       <div class="col-md-4 order-md-0">
+        <%= current_user.name %>
         <%= form_with(model: @post, local: true) do |f| %>
           <div class="form-group">
             <%= text_field_tag 'post[group_id]', "#{@group.id}", type: "hidden" %>

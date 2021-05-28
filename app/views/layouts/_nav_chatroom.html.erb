@@ -1,5 +1,5 @@
 <nav class = "navbar navbar-expand headnav">
-    <h1>Chat room</h1>
+    <%= link_to "Chat room", groups_path, class: "room-logo" %>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item mr-1"><%= button_to "退出", exit_group_path(@group), method: :delete , class: "btn btn-outline-primary" %></li>
     </ul>
