@@ -75,9 +75,9 @@ class GroupsController < ApplicationController
   
   def members_over?
       @group = Group.find(params[:id])
-      if @group.members.count > @group.limit
+      if @group.members.count >= @group.limit
         flash[:warning]="満員のため参加できません。"
-        redirect_to @group
+        redirect_to group_path(@group)
       end
   end
   

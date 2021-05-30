@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :groups
   has_many :members
   has_many :posts
-  has_many :group ,through: :members, source: :group #これいるのか？
+  has_many :group ,through: :members, source: :group
   
   
   def join(will_join_group)
