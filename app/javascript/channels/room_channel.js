@@ -1,6 +1,6 @@
-import consumer from "./consumer";
+import consumer from "./consumer"
 
-const appRoom = consumer.subscriptions.create("GroupChannel", {
+const appRoom = consumer.subscriptions.create("RoomChannel", {
   connected() {
     // Called when the subscription is ready for use on the server
   },
@@ -10,18 +10,19 @@ const appRoom = consumer.subscriptions.create("GroupChannel", {
   },
 
   received(data) {
-   return alert(data['message']);
+    return alert(data['message']);
   },
 
-  speak: function(message) {
-    return this.perform('speak', {message: message});
+  speak: function() {
+    return this.perform('speak');
   }
 });
 
 window.addEventListener("keypress", function(e) {
   if (e.keyCode === 13) {
     appRoom.speak(e.target.value);
+    console.log(e.target.value);
     e.target.value = '';
     e.preventDefault();
   }
-});
+})

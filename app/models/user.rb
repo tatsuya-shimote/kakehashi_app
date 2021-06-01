@@ -11,7 +11,34 @@ class User < ApplicationRecord
   has_many :members
   has_many :posts
   has_many :group ,through: :members, source: :group
+  attr_accessor :remember_token
   
+  #渡された文字列のハッシュ値を返す
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
+  
+  # ランダムなトークンを返す
+  def User.new_token
+    SecureRandom.urlsafe_base64
+  end
+  
+  # 永続セッションのためにユーザーをデータベースに記憶する
+  def remember
+    #Userのremember_token属性をここで定義。
+    self.remember_token = User.new_token
+    update_attribute(:remember_digest, User.digest(remember_token))
+  end
+  
+  def authenticated?(remember_token)
+    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
+  
+  def forget
+    update_attribute(:remember_digest, nil)
+  end
   
   def join(will_join_group)
     unless self.members.find_by(group_id: will_join_group)

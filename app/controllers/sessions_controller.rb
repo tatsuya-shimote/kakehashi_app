@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:session][:email])
     if @user && @user.authenticate(params[:session][:password])
       log_in(@user)
+      remember(@user)
       redirect_to @user
     else
       flash.now[:danger] = "ログインに失敗しました。"
@@ -14,6 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    forget(current_user)
     session[:user_id] = nil
     flash[:success] = 'ログアウトしました。'
     redirect_to root_url
