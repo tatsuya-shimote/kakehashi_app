@@ -10,7 +10,7 @@
       <div class = "message">
         <%= @group.content %>
       </div>
-      <% if current_user.group.find_by(params[:id]) == @group %>
+      <% if current_user.group.find_by(id: params[:id]) == @group %>
         <%= link_to "ルームに移動", members_group_path(@group), class: "btn btn-primary" %>
       <% elsif @group.members.count < @group.limit%>
         <%= link_to "グループに参加", join_group_path(@group), class: "btn btn-primary" %>
