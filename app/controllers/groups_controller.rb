@@ -37,7 +37,7 @@ class GroupsController < ApplicationController
       flash[:warning]="アクセスが集中し，参加できませんでした。もう一度参加するを押してください。"
       redirect_to group_path(@group)
     else
-      redirect_to members_group_path
+      redirect_to members_group_path(@group)
     end
   end
   

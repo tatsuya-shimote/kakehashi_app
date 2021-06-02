@@ -1,6 +1,4 @@
 <nav class = "navbar navbar-expand headnav">
-    <%= link_to "Chat room", groups_path, class: "room-logo" %>
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item mr-1"><%= button_to "退出", exit_group_path(@group), method: :delete , class: "btn btn-outline-primary" %></li>
-    </ul>
+    <span class="room-logo">Chat room</span>
+    <%= render 'layouts/dropdown_menu' %>
 </nav>

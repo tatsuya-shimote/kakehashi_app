@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       redirect_to root_url
     else
       flash.now[:danger] = "登録に失敗しました。"
-      render 'new'
+      render :new
     end
   end
   
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       flash.now[:danger] = "保存に失敗しました。"
-      render "edit"
+      render :edit
     end
   end
   

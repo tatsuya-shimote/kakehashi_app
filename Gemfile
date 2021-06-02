@@ -64,6 +64,9 @@ group :production do
   gem 'pg', '>= 0.18', '< 2.0'
 end
 
+#バリデーションエラーメッセージの言語の変更
+gem 'rails-i18n'
+
 #ページネイションの追加
 gem "kaminari"
 

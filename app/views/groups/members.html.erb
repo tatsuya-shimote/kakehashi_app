@@ -7,6 +7,7 @@
       <div class="col-md-4 order-md-0">
         <%= current_user.name %>
         <%= form_with(model: @post, local: true) do |f| %>
+        <%= render 'layouts/error_messages', object: f.object %>
           <div class="form-group">
             <%= text_field_tag 'post[group_id]', "#{@group.id}", type: "hidden" %>
             <%= f.text_area :message, class: 'form-control', rows: 3, data: { behavior: 'group_speaker' } %>

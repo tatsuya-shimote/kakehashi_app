@@ -2,12 +2,13 @@ class PostsController < ApplicationController
   before_action :require_user_logged_in
   
   def create
+   @group = current_user.group.find_by(id: params[:id])
    @post = current_user.posts.build(post_params)
    if @post.save
-     redirect_to members_group_path
+    redirect_to members_group_path(@group)
    else
-     flash[:danger] = "メッセージ入力してください。"
-     redirect_to members_group_path
+     @posts = @group.posts
+     render 'groups/members'
    end
   end
   

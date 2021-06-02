@@ -1,15 +1,11 @@
 <% if object.errors.any? %>
   <div id="error_explanation">
-    <div class="alert alert-danger">
-      <!--pluralizeは英語専用のテキストヘルパー-->
-      <!--使い方　 helper.pluralize(数値, "英語文字列")-->
-      <!--数値に合わせて活用形を自動で調整してくれる-->
-      The form contains <%= pluralize(object.errors.count, "error") %>.
+    <div class="alert alert-warning">
+      <ul>
+        <% object.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
     </div>
-    <ul>
-    <% object.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
   </div>
 <% end %>

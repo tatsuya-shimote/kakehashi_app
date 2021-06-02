@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  mount ActionCable.server => '/cable'
   root 'top_pages#top'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
