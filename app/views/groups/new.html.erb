@@ -3,7 +3,7 @@
     <h2>グループ作成</h2>
     <%= form_with(model: @group, local: true) do |f| %>
       
-      <%= f.label :name, "作成者" %>
+      <span>作成者</span>
       <p><%= @group.user.name %></p>
 
       <%= f.label :learning, "学習言語" %>
@@ -14,7 +14,7 @@
       <%= f.select :limit, [[2,2],[3,3],[4,4],[5,5]], {include_blank: "人数を選択してください"}, {class: 'custom-select'} %>
 
       <%= f.label :content, "メッセージ" %>
-      <%= f.text_area :content, class: 'form-control', include_blank: "例：主にRubyを学習しています。参加をお待ちしております！" %>
+      <%= f.text_area :content, class: 'form-control' %>
       <div class = "login-btn">
         <%= f.submit "登録", class: "btn btn-success" %>
       </div>
