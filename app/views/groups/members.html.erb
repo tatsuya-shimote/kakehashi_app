@@ -14,6 +14,10 @@
           </div>
           <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
         <% end %>
+         <%= render 'layouts/members_name', group: @group %>
+        <% if @group.members.count == 1 %>
+          あなたが退出するとこのグループは自動的に削除されます。
+        <% end %>
       </div>
     </div>
   </div>
