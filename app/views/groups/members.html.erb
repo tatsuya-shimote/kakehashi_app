@@ -17,6 +17,9 @@
          <%= render 'layouts/members_name', group: @group %>
         <% if @group.members.count == 1 %>
           あなたが退出するとこのグループは自動的に削除されます。
+          <%= button_to "退出してグループを削除", exit_group_path(@group), method: :delete , class: "btn btn-outline-primary" %>
+        <% else %>
+          <%= button_to "退出", exit_group_path(@group), method: :delete , class: "btn btn-outline-primary" %>
         <% end %>
       </div>
     </div>

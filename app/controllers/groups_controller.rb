@@ -31,14 +31,9 @@ class GroupsController < ApplicationController
   end
 
   def join
-    # @group = Group.find(params[:id])
+    @group = Group.find(params[:id])
     current_user.join(@group)
-    if @group.members.count > @group.limit
-      flash[:warning]="アクセスが集中し，参加できませんでした。もう一度参加するを押してください。"
-      redirect_to group_path(@group)
-    else
-      redirect_to members_group_path(@group)
-    end
+    redirect_to members_group_path(@group)
   end
   
   def destroy
