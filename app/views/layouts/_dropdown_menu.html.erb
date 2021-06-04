@@ -7,8 +7,7 @@
       <%= link_to "プロフィール",user_path(current_user), class: "btn btn-outline-primary dropdown-item" %>
       <% if group_member? %>
         <% if @group.members.count == 1 %>
-          <%= button_to "退出してグループを削除", exit_group_path(@group), method: :delete,
-          data: { confirm: 'あなたが最終退出者です'}, class: "btn btn-outline-danger dropdown-item" %>
+          <%= button_to "退出してグループを削除", exit_group_path(@group), method: :delete, class: "btn btn-outline-danger dropdown-item" %>
         <% else %>
           <%= button_to "退出", exit_group_path(@group), method: :delete , class: "btn btn-outline-primary dropdown-item" %>
         <% end %>
