@@ -1,7 +1,5 @@
 <header>
-  <% if logged_in? && group_member? %>
-    <%= render "layouts/nav_chatroom" %>
-  <% elsif logged_in? %>
+  <% if logged_in? %>
     <%= render "layouts/nav_login" %>
   <% else %>
    <%= render "layouts/nav_toppage" %>
