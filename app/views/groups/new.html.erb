@@ -2,7 +2,7 @@
   <div class = "container">
     <h2>グループ作成</h2>
     <%= form_with(model: @group, local: true) do |f| %>
-      
+    <%= render 'layouts/error_messages', object: f.object %>
       <span>作成者</span>
       <p><%= @group.user.name %></p>
 

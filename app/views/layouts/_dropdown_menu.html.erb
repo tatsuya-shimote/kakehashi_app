@@ -5,6 +5,7 @@
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
       <%= link_to "グループ一覧",groups_path, class: "btn btn-outline-primary dropdown-item" %>
       <%= link_to "プロフィール",user_path(current_user), class: "btn btn-outline-primary dropdown-item" %>
+      <%= link_to "パスワードの変更", new_password_change_path, class: 'btn btn-outline-primary dropdown-item' %>
       <%= button_to "ログアウト", logout_path, method: :delete, class: "btn btn-outline-primary dropdown-item"  %>
     </div>
 </div>

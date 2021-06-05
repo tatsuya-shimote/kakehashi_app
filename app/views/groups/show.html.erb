@@ -4,7 +4,7 @@
       <%= render 'layouts/group_info', group: @group %>
       <%= render 'layouts/members_name', group: @group %>
       <h5>メッセージ</h5>
-      <div class = "message">
+      <div class = "message over-wrap">
         <%= @group.content %>
       </div>
       <% if current_user.group.find_by(id: params[:id]) == @group %>

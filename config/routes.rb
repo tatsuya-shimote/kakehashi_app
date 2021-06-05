@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'password_changes/edit'
+  get 'password_changes/update'
   root 'top_pages#top'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
@@ -13,4 +15,5 @@ Rails.application.routes.draw do
     end
   end
   resources :users
+  resources :password_changes, only: [:new, :create, :edit, :update]
 end

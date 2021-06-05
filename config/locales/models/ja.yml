@@ -7,3 +7,8 @@ ja:
         name: 名前
         email: メールアドレス
         password: パスワード
+        password_confirmation: パスワード確認
+      group:
+        content: メッセージ
+        limit: 参加できる人数
+        learning: 学習言語
